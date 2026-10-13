@@ -1,0 +1,764 @@
+/* =========================================
+   ESTILOS GENERALES Y VARIABLES
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
+
+:root {
+    --bg-dark: #090a0f;
+    --bg-card: #12141d;
+    --accent-cyan: #00e5ff;
+    --accent-orange: #ff7300;
+    --text-white: #ffffff;
+    --text-gray: #b0b5c0;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    overflow-x: hidden;
+}
+
+/* =========================================
+   BOTONES SOCIALES FLOTANTES CON ANIMACIÓN
+   ========================================= */
+.social-floating {
+    position: fixed;
+    right: 25px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 2000;
+}
+
+.float-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: var(--transition);
+    overflow: hidden;
+    padding-left: 17px;
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+.float-btn .float-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-left: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.float-btn:hover {
+    width: 160px;
+    border-radius: 30px;
+}
+
+.float-btn:hover .float-text {
+    opacity: 1;
+}
+
+.float-btn.whatsapp {
+    background: #25d366;
+    animation: pulse-wa 2s infinite;
+}
+
+.float-btn.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    animation: pulse-ig 2s infinite 0.6s;
+}
+
+.float-btn.tiktok {
+    background: #000000;
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    animation: pulse-tk 2s infinite 1.2s;
+}
+
+@keyframes pulse-wa {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes pulse-ig {
+    0% { box-shadow: 0 0 0 0 rgba(220, 39, 67, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(220, 39, 67, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 39, 67, 0); }
+}
+
+@keyframes pulse-tk {
+    0% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 229, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
+}
+
+/* =========================================
+   HEADER Y LOGO
+   ========================================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(9, 10, 15, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 115, 0, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.site-logo {
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-orange);
+    box-shadow: 0 0 15px rgba(255, 115, 0, 0.4);
+    transition: var(--transition);
+}
+
+.site-logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-size: 1.35rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-white);
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
+
+.logo-subtitle {
+    font-size: 1.15rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   HERO SECTION (Ajustada más compacta)
+   ========================================= */
+.hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 10% 50px 10%;
+    background: linear-gradient(135deg, rgba(9,10,15,0.92), rgba(18,20,29,0.85)), 
+                radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.15), transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(255, 115, 0, 0.15), transparent 40%);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.badge {
+    background: rgba(0, 229, 255, 0.1);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-size: 2.1rem;
+    font-weight: 900;
+    line-height: 1.25;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #ffffff, #cfcfcf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 0.98rem;
+    color: var(--text-gray);
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* =========================================
+   CÓMO FUNCIONA
+   ========================================= */
+.features {
+    padding: 80px 10%;
+    background-color: var(--bg-card);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--accent-cyan);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--bg-dark);
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-orange);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--accent-cyan);
+    margin-bottom: 20px;
+}
+
+.feature-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* =========================================
+   CATEGORÍAS DE PRODUCTOS
+   ========================================= */
+.categories {
+    padding: 90px 10%;
+    background-color: var(--bg-dark);
+}
+
+.cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.cat-card {
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: var(--transition);
+}
+
+.cat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-cyan);
+}
+
+.cat-1 {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80') center/cover;
+}
+
+.cat-2 {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80') center/cover;
+}
+
+.cat-3 {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80') center/cover;
+}
+
+.cat-4 {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=800&q=80') center/cover;
+}
+
+.cat-overlay {
+    padding: 30px;
+    width: 100%;
+    background: linear-gradient(to top, rgba(9,10,15,0.98), transparent);
+}
+
+.cat-overlay i {
+    font-size: 2.2rem;
+    color: var(--accent-cyan);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.cat-overlay h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.cat-overlay p {
+    color: var(--text-gray);
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+/* =========================================
+   APARTADO: POR QUÉ ELEGIR LO MEJOR
+   ========================================= */
+.why-choose-us {
+    position: relative;
+    padding: 100px 10%;
+    background: url('https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+}
+
+.why-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(9, 10, 15, 0.95), rgba(18, 20, 29, 0.90));
+}
+
+.why-content {
+    position: relative;
+    z-index: 2;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.why-card {
+    background: rgba(18, 20, 29, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 115, 0, 0.3);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.why-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 12px 35px rgba(0, 229, 255, 0.2);
+}
+
+.why-card i {
+    font-size: 2.5rem;
+    color: var(--accent-orange);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.why-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.why-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* =========================================
+   REFERENCIAS DE ENTREGAS
+   ========================================= */
+.references-section {
+    padding: 90px 10%;
+    background-color: var(--bg-card);
+}
+
+.ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.ref-card {
+    background: var(--bg-dark);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.ref-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-orange);
+    box-shadow: 0 12px 30px rgba(255, 115, 0, 0.2);
+}
+
+.ref-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.ref-card:hover img {
+    transform: scale(1.05);
+}
+
+.ref-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.ref-info h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-white);
+}
+
+.ref-info p {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+/* =========================================
+   MERCANCÍA Y AGRADECIMIENTO
+   ========================================= */
+.merch-section {
+    padding: 90px 10%;
+    background-color: var(--bg-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.merch-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.merch-image {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid var(--accent-cyan);
+    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
+}
+
+.merch-image img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.merch-image img:hover {
+    transform: scale(1.03);
+}
+
+.merch-text {
+    flex: 1;
+}
+
+.merch-text h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 15px 0 20px 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.merch-text p {
+    color: var(--text-gray);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* =========================================
+   CONTACTO / ASESOR
+   ========================================= */
+.cta-section {
+    position: relative;
+    padding: 90px 10%;
+    background: linear-gradient(135deg, var(--bg-card), #161824);
+    text-align: center;
+    overflow: hidden;
+}
+
+.venezuela-flag-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #ffcc00 33.3%, #00247d 33.3%, #00247d 66.6%, #cf142b 66.6%);
+}
+
+.animated-cta {
+    animation: float-box 4s ease-in-out infinite;
+}
+
+@keyframes float-box {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.badge-venezuela {
+    background: linear-gradient(135deg, rgba(255, 204, 0, 0.15), rgba(207, 20, 43, 0.15));
+    color: #ffcc00;
+    border: 1px solid rgba(255, 204, 0, 0.4);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+}
+
+.cta-box {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.cta-box h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.cta-instruction {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.cta-instruction strong {
+    color: var(--accent-cyan);
+}
+
+.btn-pulse {
+    animation: btn-glow 2s infinite;
+}
+
+@keyframes btn-glow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 115, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 115, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 115, 0, 0); }
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-orange), #ff5100);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 115, 0, 0.6);
+}
+
+.btn-large {
+    display: inline-flex;
+    font-size: 1.1rem;
+    padding: 16px 40px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+    background-color: var(--bg-dark);
+    padding: 60px 10% 30px 10%;
+    border-top: 1px solid rgba(255, 115, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.footer-logo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-orange);
+}
+
+.footer-logo-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-white);
+    line-height: 1.1;
+}
+
+.footer-subtitle {
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    letter-spacing: 1.5px;
+}
+
+.footer-phrase {
+    color: var(--accent-orange);
+    font-style: italic;
+    font-weight: 600;
+    max-width: 500px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-gray);
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+
+    .hero h2 {
+        font-size: 1.6rem;
+    }
+
+    .merch-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-floating {
+        right: 15px;
+        bottom: 20px;
+    }
+
+    .float-btn:hover {
+        width: 55px;
+    }
+
+    .float-btn:hover .float-text {
+        display: none;
+    }
+
+    .footer-logo-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo-text {
+        text-align: center;
+    }
+}
