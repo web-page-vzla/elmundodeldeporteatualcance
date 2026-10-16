@@ -290,7 +290,7 @@ body {
 }
 
 /* =========================================
-   CATEGORÍAS DE PRODUCTOS
+   CATEGORÍAS DE PRODUCTOS (IMÁGENES LOCALES)
    ========================================= */
 .categories {
     padding: 90px 10%;
@@ -320,20 +320,21 @@ body {
     border-color: var(--accent-cyan);
 }
 
+/* AQUÍ ESTÁN TUS IMÁGENES LOCALES */
 .cat-1 {
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('categoria_calzado.jpg') center/cover;
 }
 
 .cat-2 {
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('categoria_textil.jpg') center/cover;
 }
 
 .cat-3 {
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('categoria_equipamiento.jpg') center/cover;
 }
 
 .cat-4 {
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=800&q=80') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('categoria_suplementos.jpg') center/cover;
 }
 
 .cat-overlay {
