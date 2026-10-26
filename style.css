@@ -172,6 +172,185 @@ body {
 }
 
 /* =========================================
+   ESTILOS DE NAVEGACIÓN Y MENÚ DESPLEGABLE
+   ========================================= */
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+    margin: 0;
+}
+
+.nav-link {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-link:hover, 
+.dropdown-item:hover > .nav-link {
+    color: var(--accent-orange);
+}
+
+.nav-link i {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-item:hover > .nav-link i {
+    transform: rotate(180deg);
+}
+
+/* Desplegable estándar (Zapatos y Accesorios) */
+.dropdown-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 320px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 115, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+    list-style: none;
+    padding: 12px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1100;
+}
+
+.dropdown-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.dropdown-menu li a:hover {
+    background: rgba(0, 229, 255, 0.08);
+    color: var(--accent-cyan);
+    padding-left: 25px;
+}
+
+/* Mega Menú (Ropa Deportiva) */
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: -100px;
+    width: 950px;
+    max-width: 90vw;
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.95);
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1100;
+}
+
+.dropdown-item:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.ropa-gender-section .accordion-btn {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--accent-orange);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(255, 115, 0, 0.3);
+    padding-bottom: 6px;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: default;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-btn i {
+    display: none;
+}
+
+.dropdown-sublist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dropdown-sublist li a {
+    display: block;
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: var(--transition);
+    line-height: 1.35;
+}
+
+.dropdown-sublist li a:hover {
+    background: rgba(255, 115, 0, 0.12);
+    color: var(--accent-orange);
+    padding-left: 14px;
+}
+
+/* Botón hamburguesa oculto por defecto */
+.menu-toggle {
+    display: none;
+    font-size: 1.6rem;
+    color: var(--text-white);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.menu-toggle:hover {
+    color: var(--accent-orange);
+}
+
+/* =========================================
    HERO SECTION (Con fondo de imagen deportiva)
    ========================================= */
 .hero {
@@ -180,12 +359,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 140px 10% 80px 10%;
-    /* Imagen de fondo local (puedes cambiar 'hero_bg.jpg' por el nombre de tu foto) */
+    padding: 160px 10% 80px 10%;
     background: linear-gradient(135deg, rgba(9, 10, 15, 0.90), rgba(18, 20, 29, 0.82)), 
                 url('hero_bg.jpg') center/cover no-repeat;
     text-align: center;
-    background-attachment: fixed; /* Efecto parallax moderno */
+    background-attachment: fixed;
 }
 
 .hero-content {
@@ -293,7 +471,7 @@ body {
 }
 
 /* =========================================
-   CATEGORÍAS DE PRODUCTOS (IMÁGENES LOCALES)
+   CATEGORÍAS DE PRODUCTOS
    ========================================= */
 .categories {
     padding: 90px 10%;
@@ -323,7 +501,6 @@ body {
     border-color: var(--accent-cyan);
 }
 
-/* AQUÍ ESTÁN TUS IMÁGENES LOCALES */
 .cat-1 {
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.95)), url('categoria_calzado.jpg') center/cover;
 }
@@ -726,15 +903,122 @@ body {
 }
 
 /* =========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (DISPOSITIVOS MÓVILES)
    ========================================= */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+    .mega-menu {
+        left: -180px;
+        width: 800px;
+    }
+}
+
+@media (max-width: 992px) {
     .header {
-        flex-direction: column;
-        gap: 15px;
         padding: 15px 5%;
     }
 
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(9, 10, 15, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        align-items: flex-start;
+        overflow-y: auto;
+        transition: left 0.4s ease;
+        padding: 25px 20px 40px 20px;
+        border-top: 1px solid rgba(255, 115, 0, 0.2);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .nav-list > li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 12px;
+    }
+
+    .nav-link {
+        width: 100%;
+        justify-content: space-between;
+        font-size: 1.05rem;
+    }
+
+    /* Adaptación de desplegables a pantalla táctil/móvil */
+    .dropdown-menu, .mega-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0 0 0 10px;
+        display: none;
+        flex-direction: column;
+    }
+
+    .dropdown-item:hover .dropdown-menu,
+    .dropdown-item:hover .mega-menu {
+        transform: none;
+    }
+
+    .dropdown-item.active .dropdown-menu,
+    .dropdown-item.active .mega-menu {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .mega-menu {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .accordion-btn {
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 10px 14px;
+        border-radius: 8px;
+        border-bottom: none;
+        margin-top: 8px;
+    }
+
+    .accordion-btn i {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+
+    .accordion-btn.active i {
+        transform: rotate(180deg);
+    }
+
+    .ropa-gender-section .dropdown-sublist {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 768px) {
     .hero h2 {
         font-size: 1.6rem;
     }
@@ -765,4 +1049,50 @@ body {
     .footer-logo-text {
         text-align: center;
     }
+}/* =========================================
+   EFECTO DE BRILLO Y DESTELLO EN PRODUCTOS (WHATSAPP)
+   ========================================= */
+
+/* Transición base y posición relativa para el efecto de brillo */
+.dropdown-menu li a,
+.dropdown-sublist li a {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Efecto de destello elegante al pasar el cursor (Shine Effect) */
+.dropdown-menu li a::after,
+.dropdown-sublist li a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(0, 229, 255, 0.25), 
+        transparent
+    );
+    transition: 0.6s ease;
+}
+
+.dropdown-menu li a:hover::after,
+.dropdown-sublist li a:hover::after {
+    left: 100%;
+}
+
+/* Efecto de brillo luminoso/neón elegante al hacer clic (Active / Focus) */
+.dropdown-menu li a:active,
+.dropdown-sublist li a:active,
+.dropdown-menu li a:focus,
+.dropdown-sublist li a:focus {
+    background: rgba(0, 229, 255, 0.15) !important;
+    color: var(--accent-cyan) !important;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5), inset 0 0 5px rgba(0, 229, 255, 0.3);
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+    outline: none;
+    transform: scale(0.98); /* Pequeño efecto de pulsación al presionar */
 }
